@@ -1,0 +1,47 @@
+{
+  "name": "ʀᴀᴘᴜɴᴢᴇʟ ᴍᴅ 🥜",
+  "description": "💜 Rapunzel MD WhatsApp Bot - Download videos, audios, media, and more! 💜",
+  "repository": "https://github.com/yourusername/rapunzel-md-bot",
+  "logo": "https://ibb.co/kVzvtYWk",
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "rapunzel",
+    "downloader",
+    "youtube",
+    "tiktok",
+    "mediafire",
+    "purple"
+  ],
+  "buildpacks": [
+    { "url": "heroku/nodejs" }
+  ],
+  "env": {
+    "SESSION_ID": {
+      "description": "WhatsApp session ID for your bot",
+      "value": "rapunzel-session"
+    },
+    "OWNER_NUMBER": {
+      "description": "Your WhatsApp number including country code",
+      "value": "94788172157"
+    },
+    "BOT_NAME": {
+      "description": "Name of your WhatsApp bot",
+      "value": "ʀᴀᴘᴜɴᴢᴇʟ ᴍᴅ 💜"
+    },
+    "PREFIX": {
+      "description": "Command prefix for ʀᴀᴘᴜɴᴢᴇʟ bot",
+      "value": "."
+    },
+    "THEME_COLOR": {
+      "description": "Theme color for bot UI / messages",
+      "value": "#800080"
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "standard-1X"
+    }
+  },
+  "scripts": {
