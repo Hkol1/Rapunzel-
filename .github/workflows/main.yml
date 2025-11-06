@@ -1,0 +1,36 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ✅ Clone Repo
+        uses: actions/checkout@v3
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install Dependencies
+        run: npm install
+
+      - name: 🔎 Lint Check (optional)
+        run: npm run lint || echo "Lint skipped"
+
+      - name: 🚀 Run Tests (optional)
+        run: npm test || echo "No tests"
+
+      - name: 📤 Deploy to Heroku
+        if: success()
+        env:
+          HEROKU_API_KEY: secrets.HEROKU_API_KEY 
+        run: |
+          git remote add heroku https://heroku:HEROKU_API_KEY@git.heroku.com/HEROKU_APP_NAME.git
+          git push heroku HEAD:main --force
+``
